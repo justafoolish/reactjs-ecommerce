@@ -9,7 +9,7 @@ function Account() {
   const { page } = useParams();
   return (
     <Row className="justify-content-center">
-      <Col md={4}>
+      <Col lg={4}>
         <div className="form-wrapper">
           {page === "Login" && <LoginForm />}
           {page === "Signup" && <SignupForm />}
