@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./components";
-import { Home, Account, Cart } from "./pages";
+import { Home, Account, Cart, Products, About, Contact } from "./pages";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 export default function App() {
@@ -9,18 +9,20 @@ export default function App() {
       <Header />
       <Container fluid className="px-0">
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+          <Route exact path="/" component={Home} />
+
           <Route exact path="/Account">
             <Redirect to="/Account/Login" />
           </Route>
-          <Route exact path="/Account/:page">
-            <Account />
-          </Route>
-          <Route path="/Cart">
-            <Cart />
-          </Route>
+
+          <Route exact path="/Account/:page" component={Account} />
+
+          <Route path="/Cart" component={Cart} />
+
+          <Route path="/Products" component={Products} />
+
+          <Route path="/About" component={About} />
+          <Route path="/Contact" component={Contact} />
         </Switch>
       </Container>
       <footer style={{ minHeight: "25vh", background: "#f8f9fa" }}></footer>

@@ -10,7 +10,7 @@ import SearchPanel from "../SearchPanel";
 import { Link } from "react-router-dom";
 
 function Header() {
-  const [category, setCategory] = React.useState([]);
+  const category = ["Home", "About", "Products", "Contact"];
   const [showMenu, setShowMenu] = React.useState(false);
   const [showCart, setShowCart] = React.useState(false);
   const [searchPanel, setSearchPanel] = React.useState(false);
@@ -22,15 +22,6 @@ function Header() {
   const toggleSearchPanel = () => {
     setSearchPanel((s) => !s);
   };
-
-  React.useEffect(() => {
-    const getCategory = async () => {
-      fetch("https://fakestoreapi.com/products/categories")
-        .then((res) => res.json())
-        .then((json) => setCategory(json));
-    };
-    getCategory();
-  }, []);
 
   return (
     <Navbar bg="light" expand="lg" className="justify-content-between py-3 position-relative">
