@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm, SignupForm } from "../../component";
+import { LoginForm, SignupForm } from "../../components";
 
 import "./Account.scss";
 import { Row, Col } from "react-bootstrap";

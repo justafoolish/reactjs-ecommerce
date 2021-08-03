@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "./component";
+import { Header } from "./components";
 import { Home, Account, Cart } from "./pages";
-import Container from "react-bootstrap/container";
+import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 export default function App() {
   return (

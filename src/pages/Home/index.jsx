@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero, AdsBanner, Sponsor, ProductCard } from "../../component";
+import { Hero, AdsBanner, Sponsor, ProductCard } from "../../components";
 import { Container, Row, Col } from "react-bootstrap";
 
 function Home() {
