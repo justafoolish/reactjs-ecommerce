@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Icon({ cartCount, toggleShowCart, toggleSearchPanel, search }) {
   const toggleShow = () => toggleShowCart && toggleShowCart();
   const toggleSearch = () => toggleSearchPanel && toggleSearchPanel();
-  
+
   return (
     <Nav className="flex-row justify-content-end navbar-nav justify-content-lg-end d-flex d-lg-flex" id="icon-nav">
       <NavItem className="mx-1">
@@ -25,7 +25,7 @@ function Icon({ cartCount, toggleShowCart, toggleSearchPanel, search }) {
         </NavLink>
       </NavItem>
       <NavItem className="mx-1">
-        <Link to="/Account/Login" className="nav-link">
+        <Link to="/Account/Login" className="nav-link" role={"button"}>
           <PersonFill size={25} />
         </Link>
       </NavItem>
