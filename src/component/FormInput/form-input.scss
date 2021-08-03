@@ -1,0 +1,58 @@
+
+@mixin shrink {
+    transform: translateY(-95%) scale(0.8);
+    color: rgba(0, 0, 0, .9);
+  }
+  .form-input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border-bottom: 2px solid rgba(34, 34, 34, 0.3);
+    border-bottom: 2px solid rgba(0,0,0,.1);
+    transition: all 0.25s ease;
+    background: #fff;
+    margin-bottom: 2.25rem;
+  
+    &:focus-within {
+      border-bottom: 2px solid #222;
+  
+      .form-label {
+        @include shrink;
+      }
+    }
+    & input {
+      border: none;
+      border-radius: 0;
+      padding: 0.6rem 0.75rem;
+      font-size: 1rem;
+  
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    & .form-label {
+      position: absolute;
+      bottom: 0;
+      left: 0.25rem;
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.5);
+      transition: all 0.25s ease;
+      pointer-events: none;
+  
+      &.shrink {
+        @include shrink;
+      }
+    }
+    .error-message {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: .25rem .25rem;
+        color: var(--bs-danger);
+        text-align: left;
+        
+    }
+}

@@ -1,0 +1,17 @@
+.carousel-item {
+  height: 100% !important;
+  & img {
+    display: block;
+    width: 100%;
+    object-fit: cover !important;
+  }
+}
+[subslider] {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  [subSlider] {
+    display: none;
+  }
+}

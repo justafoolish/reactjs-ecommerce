@@ -1,0 +1,41 @@
+@mixin btn {
+  border: none;
+  background: transparent;
+  padding: .5rem 0;
+  transition: all 0.2s ease;
+}
+.button {
+  @include btn;
+  background: #151515;
+  color: #fff;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+.button-inverse {
+  @include btn;
+  background: #151515;
+  color: #fff;
+  border: 1px solid #151515;
+
+  &:hover {
+    background: #fff;
+    color: #151515;
+  }
+}
+.button-outline {
+  @include btn;
+  border: 1px solid #151515;
+  &:hover {
+    background: #151515;
+    color: #fff;
+  }
+}
+.button-transparent {
+  @include btn;
+
+  &:hover {
+      opacity: .8 !important;
+  }
+}

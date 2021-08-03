@@ -1,0 +1,42 @@
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.navbar-brand {
+  margin-right: 0 !important;
+  font-size: 1.5rem !important;
+}
+
+@media (max-width: 960px) {
+  .badge {
+    right: -6px;
+  }
+  #icon-nav {
+    width: 20%;
+  }
+}
+
+.search--panel {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  height: 60vh;
+  z-index: 99;
+  animation: fullHeight .35s ease;
+  
+  &.collapsing {
+    animation-direction: reverse !important;
+  }
+}
+
+
+@keyframes fullHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 60vh;
+  }
+}
