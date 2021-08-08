@@ -6,6 +6,7 @@ import QuickViewModal from "../QuickViewModal";
 import Button from "../Button";
 import useToggleHeart from "../../hooks/useToggleHeart";
 import useToggleModal from "../../hooks/useToggleModal";
+import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
   const { id, name, price, imgUrl } = product;
@@ -14,9 +15,11 @@ function ProductCard({ product }) {
 
   return (
     <>
-      <Card key={id}>
+      <Card key={id} className="mx-1">
         <Card.Header className="h-50">
-          <Card.Img src={imgUrl} variant="top" className="bg-transparent h-50" />
+          <Link to={`/Product/${id}`}>
+            <Card.Img src={imgUrl[0]} variant="top" className="bg-transparent" />
+          </Link>
           <Button variant="button-transparent" custom="view-button w-50" onClick={() => showModal()}>
             Preview &raquo;{" "}
           </Button>
@@ -27,7 +30,7 @@ function ProductCard({ product }) {
           </Button>
         </Card.Header>
         <Card.Body>
-          <Card.Title className="">{name}</Card.Title>
+          <Card.Title className="text-center">{name}</Card.Title>
           <Card.Title className="text-muted">
             {" "}
             {price}

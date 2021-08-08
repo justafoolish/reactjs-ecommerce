@@ -16,7 +16,7 @@ function ProductModal({ show, onHide, product }) {
   return (
     show && (
       <Modal show={show} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Header>
+        <Modal.Header className="p-3">
           <Button variant="button-transparent" custom="py-0" onClick={onHide}>
             <BoxArrowLeft size={25} className="mr-2" />{" "}
           </Button>

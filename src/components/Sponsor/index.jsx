@@ -36,7 +36,7 @@ function Sponsor() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -50,7 +50,7 @@ function Sponsor() {
       <h4 className="text-center py-2 font-weight-light">Sponsors</h4>
       <Slider {...settings} className="px-5 mx-4">
         {banners.map((banner) => (
-          <div key={banner.key} className="p-5">
+          <div key={banner.key} className="px-2 py-2 p-lg-4">
             <Figure>
               <Figure.Image src={banner.img} />
             </Figure>

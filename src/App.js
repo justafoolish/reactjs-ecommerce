@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "./components";
-import { Home, Account, Cart, Products, About, Contact } from "./pages";
+import { Home, Account, Cart, Products, Product, About, Contact } from "./pages";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 export default function App() {
@@ -19,6 +19,7 @@ export default function App() {
 
           <Route path="/Cart" component={Cart} />
 
+          <Route path="/Product/:id" component={Product} />
           <Route path="/Products" component={Products} />
 
           <Route path="/About" component={About} />
