@@ -1,15 +1,8 @@
 import React from "react";
-import { Hero, AdsBanner, Sponsor, ProductCard } from "../../components";
-import { Container, Row, Col } from "react-bootstrap";
+import { Hero, AdsBanner, Sponsor } from "../../components";
 import ProductsSlider from "../../components/ProductsSlider";
 
 function Home() {
-  const style = {
-    flexWrap: "nowrap",
-    overflowX: "scroll",
-    overflowY: "hidden",
-    margin: "1rem 0",
-  };
   const product = [
     {
       id: 1,
@@ -47,23 +40,7 @@ function Home() {
       <Hero />
       <AdsBanner />
       <div style={{ minHeight: "50vh" }}>
-        {/* <Row style={style}>
-            {product.map((item) => (
-              <Col md={4} lg={3} sm={6} className="d-flex justify-content-center align-items-center" key={item.id}>
-                <ProductCard product={item} />
-              </Col>
-            ))}
-          </Row>
-          <Row style={style}>
-            {product.map((item) => (
-              <Col md={4} lg={3} sm={6} className="d-flex justify-content-center align-items-center" key={item.id}>
-                <ProductCard product={item} />
-              </Col>
-            ))}
-          </Row> */}
-        {/* <Row> */}
         <ProductsSlider HeaderTitle="LatestProduct" Products={product} />
-        {/* </Row> */}
       </div>
       <Sponsor />
     </>
