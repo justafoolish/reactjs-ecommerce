@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "./ProductsSlider.scss";
 import ProductCard from "../ProductCard";
 import Button from "../Button";
-import { Container } from "react-bootstrap";
+
 const ProductsSlider = ({ HeaderTitle, Products }) => {
   const settings = {
     arrows: false,
@@ -44,27 +44,17 @@ const ProductsSlider = ({ HeaderTitle, Products }) => {
   };
   return (
     <>
-      {/* <Container fluid> */}
-      <Container fluid>
-        <div className="d-flex justify-content-between align-items-center px-lg-3 mx-lg-3 my-lg-1 mx-2">
-          <h3 className="font-weight-light">{HeaderTitle}</h3>
-          <div className="d-flex align-items-center">
-            <Button custom="font-weight-bold" variant="button-transparent" children="Previous" onClick={previous} />
-            <span className="mx-2">{"/"}</span>
-            <Button custom="font-weight-bold" variant="button-transparent" children="Next" onClick={next} />
-          </div>
+      <div className="d-flex justify-content-between align-items-center px-lg-3 mx-lg-3 my-lg-1 mx-2">
+        <h3 className="font-weight-light">{HeaderTitle}</h3>
+        <div className="d-flex align-items-center">
+          <Button custom="font-weight-bold" variant="button-transparent" children="Previous" onClick={previous} />
+          <span className="mx-2">{"/"}</span>
+          <Button custom="font-weight-bold" variant="button-transparent" children="Next" onClick={next} />
         </div>
-        <Slider {...settings} className="px-lg-2 m-lg-3 mb-4" ref={(c) => (slider = c)}>
-          {Products.map((product) => (
-            <ProductCard product={product} key={product.id} />
-          ))}
-          {Products.map((product, index) => (
-            <ProductCard product={product} key={index} />
-          ))}
-        </Slider>
-      </Container>
-
-      {/* </Container> */}
+      </div>
+      <Slider {...settings} className="px-lg-2 m-lg-3 mb-4" ref={(c) => (slider = c)}>
+        {Products && Products.map((product) => <ProductCard product={product} key={product.id} />)}
+      </Slider>
     </>
   );
 };

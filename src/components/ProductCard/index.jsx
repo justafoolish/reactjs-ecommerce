@@ -9,7 +9,7 @@ import useToggleModal from "../../hooks/useToggleModal";
 import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
-  const { id, name, price, imgUrl } = product;
+  const { id, name, price, imgURL } = product;
   const { activeWhistList, changeHeart, reChangeHeart } = useToggleHeart(false);
   const { toggleModal, showModal, hideModal } = useToggleModal();
 
@@ -18,7 +18,7 @@ function ProductCard({ product }) {
       <Card key={id} className="mx-2 mx-md-1">
         <Card.Header className="h-50">
           <Link to={`/Product/${id}`}>
-            <Card.Img src={imgUrl[0]} variant="top" className="bg-transparent" />
+            <Card.Img src={imgURL[0]} variant="top" className="bg-transparent" />
           </Link>
           <Button variant="button-transparent" custom="view-button w-50" onClick={() => showModal()}>
             Preview &raquo;{" "}

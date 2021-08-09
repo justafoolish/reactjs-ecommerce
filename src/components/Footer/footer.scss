@@ -1,5 +1,4 @@
 footer {
-  min-height: 20vh;
   background: #f8f9fa;
   .footer--info {
     position: relative;
@@ -21,7 +20,7 @@ footer {
       width: 100%;
       height: 1px;
       background-color: rgba(34, 34, 34, 0.2);
-      margin: .5rem 0;
+      margin: 0.5rem 0;
     }
   }
 }

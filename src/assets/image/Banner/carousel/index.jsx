@@ -5,6 +5,6 @@ import banner4 from "./banner4.jpeg";
 import banner5 from "./banner5.jpeg";
 import banner6 from "./banner6.jpeg";
 
-const ListImage = [banner1, banner2, banner3, banner4, banner5, banner6]
+const ListImages = [banner1, banner2, banner3, banner4, banner5, banner6]
 
-export default ListImage
+export default ListImages

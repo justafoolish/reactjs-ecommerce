@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./button.scss";
 
 const Button = ({ type = "", variant, custom = "", onClick, children }) => (
-  <button type={type ? type : null} className={`${variant} ${custom}`} onClick={() => onClick()}>
+  <button type={type ? type : null} className={`${variant} ${custom}`} onClick={onClick}>
     {children}
   </button>
 );

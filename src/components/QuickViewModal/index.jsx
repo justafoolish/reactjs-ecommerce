@@ -9,7 +9,7 @@ import useQuantity from "../../hooks/useQuantity";
 import useToggleHeart from "../../hooks/useToggleHeart";
 
 function ProductModal({ show, onHide, product }) {
-  const { name, price, imgUrl } = product;
+  const { name, price, imgURL } = product;
   const { quantity, increaseQuantity, decreaseQuantity } = useQuantity();
   const { activeWhistList, changeHeart, reChangeHeart } = useToggleHeart(false);
 
@@ -30,7 +30,7 @@ function ProductModal({ show, onHide, product }) {
           <Row>
             <Col lg={6}>
               <div className="modal--image">
-                <img src={imgUrl} className="img-fluid" alt="" />
+                <img src={imgURL[0]} className="img-fluid" alt="" />
               </div>
             </Col>
             <Col lg={6} className="pl-0">
