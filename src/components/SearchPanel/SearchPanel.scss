@@ -13,14 +13,14 @@
 }
 
 .search--input {
-  width: 50%;
+  width: 75%;
   display: flex;
   margin: 1rem 3rem;
   align-items: center;
   border-bottom: 3px solid rgba(34, 34, 34, 0.3);
   transition: all 0.25s ease;
   background: #fff;
-  animation: searchInput .5s ease;
+  animation: searchInput 0.5s ease;
 
   &.expanding {
     animation-direction: reverse !important;
@@ -43,16 +43,18 @@
     margin: 0 0.75rem;
   }
 }
+@media (min-width: 720px) {
+  .search--input {
+    width: 50%;
+  }
+}
 
 @keyframes searchInput {
   from {
-    //transform: scaleX(0.5);
-    width: 10%
+    width: 10%;
   }
   to {
-    //transform: scaleX(1);
-    width: 50%
-
+    width: 50%;
   }
 }
 

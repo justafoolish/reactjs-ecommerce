@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "./components";
+import { Header, Footer } from "./components";
 import { Home, Account, Cart, Products, Product, About, Contact } from "./pages";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/Contact" component={Contact} />
         </Switch>
       </Container>
-      <footer style={{ minHeight: "25vh", background: "#f8f9fa" }}></footer>
+      <Footer />
     </Router>
   );
 }

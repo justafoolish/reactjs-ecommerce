@@ -40,7 +40,8 @@ function Home() {
       <Hero />
       <AdsBanner />
       <div style={{ minHeight: "50vh" }}>
-        <ProductsSlider HeaderTitle="LatestProduct" Products={product} />
+        <ProductsSlider HeaderTitle="Latest Products" Products={product} />
+        <ProductsSlider HeaderTitle="Popular Products" Products={product} />
       </div>
       <Sponsor />
     </>

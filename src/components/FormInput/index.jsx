@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Form } from "react-bootstrap";
 import "./form-input.scss";
 
-function FormInput({ type, label, custom = "", submitInput, errorMessage }) {
+function FormInput({ type, label, custom, submitInput, errorMessage, children }) {
   const [inputValue, setInputValue] = React.useState("");
   const [showErrorMessage, setShowErrorMessage] = React.useState(false);
   const handleChange = (e) => {
@@ -22,6 +22,7 @@ function FormInput({ type, label, custom = "", submitInput, errorMessage }) {
         <Form.Control type={type} onChange={handleChange} value={inputValue} onBlur={validate} />
         {label.length && <Form.Label className={inputValue.length ? "shrink" : null}>{label}</Form.Label>}
         {showErrorMessage && <label className="error-message">{errorMessage}</label>}
+        {children}
       </Form.Group>
     </>
   );
@@ -32,10 +33,13 @@ FormInput.propTypes = {
   custom: PropTypes.string,
   label: PropTypes.string,
   submitInput: PropTypes.func,
+  errorMessage: PropTypes.string,
 };
 FormInput.defaultProps = {
   label: "",
+  custom: "",
   submitInput: null,
+  errorMessage: "",
 };
 
 export default FormInput;

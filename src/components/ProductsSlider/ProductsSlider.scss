@@ -1,10 +1,4 @@
-.custom-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  button {
-    background: transparent !important;
-    color: #222;
-  }
+.slick-initialized .slick-slide {
+  display: grid !important;
+  place-items: center;
 }

@@ -1,4 +1,5 @@
 export { default as Header } from "./Header";
+export { default as Footer } from "./Footer"
 export { default as Hero } from "./Hero";
 export { default as AdsBanner } from "./AdsBanner";
 export { default as Sponsor } from "./Sponsor";

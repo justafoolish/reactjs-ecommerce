@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "./ProductsSlider.scss";
 import ProductCard from "../ProductCard";
+import Button from "../Button";
 import { Container } from "react-bootstrap";
 const ProductsSlider = ({ HeaderTitle, Products }) => {
   const settings = {
@@ -8,37 +9,28 @@ const ProductsSlider = ({ HeaderTitle, Products }) => {
     lazyLoad: true,
     dots: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 6000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 992,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 576,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: false,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
         },
       },
     ],
@@ -53,21 +45,23 @@ const ProductsSlider = ({ HeaderTitle, Products }) => {
   return (
     <>
       {/* <Container fluid> */}
-      <Container fluid className="position-relative">
-        <h3 className="px-lg-5 m-lg-3 mx-1 font-weight-light">Latest Products</h3>
-        <Slider {...settings} className="px-lg-5 m-lg-3 mb-4" ref={(c) => (slider = c)}>
+      <Container fluid>
+        <div className="d-flex justify-content-between align-items-center px-lg-3 mx-lg-3 my-lg-1 mx-2">
+          <h3 className="font-weight-light">{HeaderTitle}</h3>
+          <div className="d-flex align-items-center">
+            <Button custom="font-weight-bold" variant="button-transparent" children="Previous" onClick={previous} />
+            <span className="mx-2">{"/"}</span>
+            <Button custom="font-weight-bold" variant="button-transparent" children="Next" onClick={next} />
+          </div>
+        </div>
+        <Slider {...settings} className="px-lg-2 m-lg-3 mb-4" ref={(c) => (slider = c)}>
           {Products.map((product) => (
-            <ProductCard product={product} />
+            <ProductCard product={product} key={product.id} />
+          ))}
+          {Products.map((product, index) => (
+            <ProductCard product={product} key={index} />
           ))}
         </Slider>
-        <div className="custom-button px-lg-5 m-lg-3 mx-1">
-          <button className="button" onClick={() => previous()}>
-            Previous
-          </button>
-          <button className="button" onClick={() => next()}>
-            Next
-          </button>
-        </div>
       </Container>
 
       {/* </Container> */}

@@ -15,7 +15,7 @@ function ProductCard({ product }) {
 
   return (
     <>
-      <Card key={id} className="mx-1">
+      <Card key={id} className="mx-2 mx-md-1">
         <Card.Header className="h-50">
           <Link to={`/Product/${id}`}>
             <Card.Img src={imgUrl[0]} variant="top" className="bg-transparent" />
