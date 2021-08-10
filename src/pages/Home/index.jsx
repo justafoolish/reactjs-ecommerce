@@ -10,7 +10,7 @@ function Home() {
     <>
       <Hero />
       <AdsBanner />
-      <Container fluid>
+      <Container fluid className="my-5">
         <Loading isPending={latestProductPending} error={latestProductError} />
         {latestProduct && <ProductsSlider HeaderTitle="Latest Products" Products={latestProduct} />}
       </Container>

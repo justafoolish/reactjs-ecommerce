@@ -1,13 +1,12 @@
 import React from "react";
 import { Header, Footer } from "./components";
 import { Home, Account, Cart, Products, Product, About, Contact } from "./pages";
-import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 export default function App() {
   return (
     <Router>
       <Header />
-      <Container fluid className="px-0">
+      <main>
         <Switch>
           <Route exact path="/" component={Home} />
 
@@ -25,7 +24,7 @@ export default function App() {
           <Route path="/About" component={About} />
           <Route path="/Contact" component={Contact} />
         </Switch>
-      </Container>
+      </main>
       <Footer />
     </Router>
   );

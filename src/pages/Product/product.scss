@@ -1,10 +1,17 @@
 .product {
   &--image {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex-direction: column-reverse;
     &--gallery {
+      display: flex;
+      width: 15%;
       &__cover {
         overflow: hidden;
-        margin-right: 1rem;
         margin-bottom: 1rem;
+        padding-bottom: 1rem;
         width: 110px;
         height: 110px;
         img {
@@ -18,16 +25,38 @@
         }
       }
     }
+    &--preview {
+      padding: 0 1rem;
+      margin: 0 1rem;
+      width: 85%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
   }
   &--info {
     h2 {
       font-size: 2.5rem;
-    //   color: rgba(34, 34, 34, 0.8);
+      //   color: rgba(34, 34, 34, 0.8);
     }
   }
 }
 @media (max-width: 768px) {
   .product--image img {
     width: 100% !important;
+  }
+}
+.img-wrapper {
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  img {
+    transition: transform 0.35s ease;
+    &:hover {
+      transform: scale(125%);
+    }
   }
 }
