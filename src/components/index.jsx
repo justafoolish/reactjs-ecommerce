@@ -7,4 +7,6 @@ export { default as ProductCard } from "./ProductCard";
 export { default as LoginForm } from "./LoginForm";
 export { default as SignupForm } from "./SignupForm";
 export { default as Loading } from "./Loading";
-export { default as ProductsSlider} from "./ProductsSlider";
+export { default as ProductsSlider } from "./ProductsSlider";
+export { default as Button } from "./Button";
+export { default as SizeBox } from "./SizeBox";

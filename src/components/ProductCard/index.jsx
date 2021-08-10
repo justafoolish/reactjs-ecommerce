@@ -14,37 +14,35 @@ function ProductCard({ product }) {
   const { toggleModal, showModal, hideModal } = useToggleModal();
 
   return (
-    <>
-      <Card key={id} className="mx-2 mx-md-1">
-        <Card.Header className="h-50">
-          <Link to={`/Product/${id}`}>
-            <Card.Img src={imgURL[0]} variant="top" className="bg-transparent" />
-          </Link>
-          <Button variant="button-transparent" custom="view-button w-50" onClick={() => showModal()}>
-            Preview &raquo;{" "}
-          </Button>
-          <Button variant="button-transparent" custom="fav-button">
-            <div className="h-100 w-100" onMouseEnter={() => changeHeart()} onMouseLeave={() => reChangeHeart()}>
-              {activeWhistList}
-            </div>
-          </Button>
-        </Card.Header>
-        <Card.Body>
-          <Card.Title className="text-center">{name}</Card.Title>
-          <Card.Title className="text-muted">
-            {" "}
-            {price}
-            <sup>vnd</sup>{" "}
-          </Card.Title>
-          <div className="card-body--button">
-            <Button variant="button-inverse" custom="w-100">
-              Add to cart
-            </Button>
+    <Card key={id} className="mx-2 mx-md-1">
+      <Card.Header className="h-50">
+        <Link to={`/Product/${id}`}>
+          <Card.Img src={imgURL[0]} variant="top" className="bg-transparent" />
+        </Link>
+        <Button variant="button-transparent" custom="view-button w-50" onClick={() => showModal()}>
+          Preview &raquo;{" "}
+        </Button>
+        <Button variant="button-transparent" custom="fav-button">
+          <div className="h-100 w-100" onMouseEnter={() => changeHeart()} onMouseLeave={() => reChangeHeart()}>
+            {activeWhistList}
           </div>
-        </Card.Body>
-        <QuickViewModal show={toggleModal} onHide={hideModal} product={product} />
-      </Card>
-    </>
+        </Button>
+      </Card.Header>
+      <Card.Body>
+        <Card.Title className="text-center">{name}</Card.Title>
+        <Card.Title className="text-muted">
+          {" "}
+          {price}
+          <sup>vnd</sup>{" "}
+        </Card.Title>
+        <div className="card-body--button">
+          <Button variant="button-inverse" custom="w-100">
+            Add to cart
+          </Button>
+        </div>
+      </Card.Body>
+      <QuickViewModal show={toggleModal} onHide={hideModal} product={product} />
+    </Card>
   );
 }
 

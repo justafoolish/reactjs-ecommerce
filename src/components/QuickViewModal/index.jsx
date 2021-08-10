@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Modal.scss";
 import { Modal, Row, Col } from "react-bootstrap";
 import { BoxArrowLeft } from "react-bootstrap-icons";
 import Button from "../Button";
-
+import SizeBox from "../SizeBox";
 import useQuantity from "../../hooks/useQuantity";
 import useToggleHeart from "../../hooks/useToggleHeart";
 
@@ -12,7 +12,13 @@ function ProductModal({ show, onHide, product }) {
   const { name, price, imgURL } = product;
   const { quantity, increaseQuantity, decreaseQuantity } = useQuantity();
   const { activeWhistList, changeHeart, reChangeHeart } = useToggleHeart(false);
-
+  const [size, setSize] = useState("");
+  const pickSize = (value) => {
+    setSize(() => {
+      return value;
+    });
+    console.log(size);
+  };
   return (
     show && (
       <Modal show={show} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -42,12 +48,7 @@ function ProductModal({ show, onHide, product }) {
                 </div>
                 <div className="modal--info--option">
                   <div className="modal--info--option__size">
-                    <ul>
-                      <li className="size-active">S</li>
-                      <li>M</li>
-                      <li>L</li>
-                      <li>XL</li>
-                    </ul>
+                    <SizeBox sizeAvailable={["SM", "S", "L", "XL"]} pickSize={pickSize} />
                   </div>
                   <div className="modal--info--option__quantity">
                     <button onClick={() => decreaseQuantity()}>-</button>

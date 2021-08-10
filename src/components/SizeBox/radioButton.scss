@@ -1,0 +1,38 @@
+.size--list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  li label {
+    margin-right: 0.25rem;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    user-select: none;
+    position: relative;
+
+    input {
+      position: absolute;
+      cursor: pointer;
+      display: none;
+    }
+
+    input:checked ~ span {
+      color: #fff;
+      background: #222;
+    }
+    &:hover {
+      span {
+        background: #222;
+        color: #fff;
+      }
+    }
+
+    span {
+      font-size: 1.25rem;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #222;
+    }
+  }
+}

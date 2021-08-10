@@ -29,35 +29,6 @@
   }
   &--option {
     margin: 1rem 0;
-    &__size {
-      ul {
-        list-style-type: none;
-        display: flex;
-        padding: 0;
-        li {
-          margin-right: 1rem;
-          width: 35px;
-          height: 35px;
-          border: 1px solid #222;
-          display: grid;
-          place-items: center;
-          border-radius: 20px;
-          cursor: pointer;
-          transition: all 0.2s ease-in-out;
-
-          &.size-active {
-            background-color: #222;
-            color: #fff;
-          }
-
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.75);
-            color: #fff;
-            transition: all 0.2s ease-in-out;
-          }
-        }
-      }
-    }
 
     &__quantity {
       margin-top: 1.5rem;
