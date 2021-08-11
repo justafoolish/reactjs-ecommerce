@@ -6,46 +6,55 @@
   height: 60vh;
   z-index: 99;
   animation: fullHeight 0.35s ease;
-
+  overflow-y: scroll;
   &.collapsing {
     animation-direction: reverse !important;
+  }
+
+  & > .container .row.h-100 {
+    overflow: scroll !important;
+  }
+
+  form {
+    position: sticky;
+    z-index: 50;
+    padding: 1rem 0 1rem 3rem;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
   }
 }
 
 .search--input {
-  width: 75%;
+  width: 50%;
   display: flex;
-  margin: 1rem 3rem;
   align-items: center;
-  border-bottom: 3px solid rgba(34, 34, 34, 0.3);
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   background: #fff;
   animation: searchInput 0.5s ease;
 
   &.expanding {
     animation-direction: reverse !important;
   }
-  &:focus-within {
-    border-bottom: 3px solid #222;
+  &:focus-within svg {
+    border-bottom: 2px solid #222;
   }
-  & input {
+  button {
+    outline: none;
     border: none;
-    border-radius: 0;
-    padding: 0.75rem 0.75rem;
-    font-size: 1.2rem;
-
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
+    background: transparent;
+    padding: 0;
   }
-  & svg {
-    margin: 0 0.75rem;
+  svg {
+    padding: 0.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+    width: 45px;
+    height: 45px;
   }
 }
-@media (min-width: 720px) {
+@media (max-width: 720px) {
   .search--input {
-    width: 50%;
+    width: 75%;
   }
 }
 

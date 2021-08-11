@@ -12,6 +12,7 @@ function FormInput({ type, label, custom, submitInput, errorMessage, children })
     submitInput(e.target.value);
   };
   const validate = (event) => {
+    if (errorMessage) return;
     if (event.target.value === "") {
       setShowErrorMessage(true);
     } else setShowErrorMessage(false);
