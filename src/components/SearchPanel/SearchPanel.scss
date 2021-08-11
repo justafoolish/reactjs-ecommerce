@@ -8,7 +8,7 @@
   z-index: 99;
   display: flex;
   flex-direction: column;
-  animation: fullHeight 0.35s ease;
+  animation: fullHeight 0.2s ease-in;
   &.collapsing {
     animation-direction: reverse !important;
   }
@@ -27,7 +27,7 @@
   width: 50%;
   display: flex;
   align-items: center;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease-in;
   background: #fff;
   animation: searchInput 0.5s ease;
 
