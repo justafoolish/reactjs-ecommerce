@@ -5,6 +5,7 @@
 
   max-width: 250px;
   height: 100%;
+  background-color: transparent !important;
 
   &:hover {
     .card-header .fav-button,
@@ -63,6 +64,7 @@
   }
 }
 .card-body {
+  background-color: transparent !important;
   display: flex;
   flex-direction: column;
   align-items: center;

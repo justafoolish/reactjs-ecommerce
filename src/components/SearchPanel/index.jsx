@@ -20,13 +20,13 @@ function SearchPanel({ invisible }) {
       <div className={`search--panel${invisible ? "" : " collapsing"}`} key={invisible} onAnimationEnd={onAnimationEnd}>
         <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className={`search--input${invisible ? "" : " expanding"}`}>
-            <FormInput type="text" label="search" submitInput={getSearchValue} custom="mb-0" />
+            <FormInput type="text" label="Search" submitInput={getSearchValue} custom="mb-0" />
             <button type="submit">
               <Search size={30} />
             </button>
           </Form.Group>
         </Form>
-        <div className="container">
+        <div className="container overflow-auto mb-3">
           <Loading isPending={isPending} />
           <div className="row">
             {searchValue.length !== 0 &&

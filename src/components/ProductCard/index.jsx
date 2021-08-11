@@ -30,7 +30,7 @@ function ProductCard({ product }) {
       </Card.Header>
       <Card.Body>
         <Card.Title className="text-center">{name}</Card.Title>
-        <Card.Title className="text-muted">
+        <Card.Title className="text-black-50">
           {" "}
           {price}
           <sup>vnd</sup>{" "}
