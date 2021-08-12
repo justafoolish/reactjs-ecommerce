@@ -14,8 +14,10 @@ function SearchPanel({ invisible }) {
   const getSearchValue = (value) => setSearchValue(value);
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
   const submitSearchForm = (e) => {
     e.preventDefault();
+    setError(false);
     searchValue.length && setLoading(true);
   };
 
@@ -31,17 +33,19 @@ function SearchPanel({ invisible }) {
         .then((data) => {
           setProducts(data);
           setLoading(false);
+          (data.length === 0 && setError(true)) || setLoading(false);
         })
         .catch((err) => {
           if (err.name !== "AbortError") {
             setLoading(false);
+            setError(true);
           }
         });
   }, [loading, searchValue]);
 
   return (
     shouldRender && (
-      <div className={`search--panel${invisible ? "" : " collapsing"}`} key={invisible} onAnimationEnd={onAnimationEnd}>
+      <div className={`search--panel${invisible ? "" : " collapsing"} shadow-lg`} key={invisible} onAnimationEnd={onAnimationEnd}>
         <Form onSubmit={(e) => submitSearchForm(e)}>
           <Form.Group className={`search--input${invisible ? "" : " expanding"}`}>
             <FormInput type="text" label="Search" submitInput={getSearchValue} custom="mb-0" />
@@ -50,8 +54,9 @@ function SearchPanel({ invisible }) {
             </button>
           </Form.Group>
         </Form>
-        <div className="container overflow-auto mb-3 border-bottom border-3 border-dark h-100">
-          <Loading isPending={loading} />
+        <div className="container overflow-auto mb-3 border-bottom border-2 border-dark h-100">
+          {console.log(products)}
+          <Loading isPending={loading} error={error} errorMessage={"No Products Found"} />
           <div className="row">
             {products &&
               !loading &&
