@@ -57,15 +57,15 @@ function SearchPanel({ invisible }) {
         <div className="container overflow-auto mb-3 border-bottom border-2 border-dark h-100">
           {console.log(products)}
           <Loading isPending={loading} error={error} errorMessage={"No Products Found"} />
-          <div className="row">
-            {products &&
-              !loading &&
-              products.map((product) => (
+          {!error && !loading && (
+            <div className="row">
+              {products.map((product) => (
                 <div className="col-lg-3 col-md-4 col-6" key={product.id}>
                   <ProductCard product={product} />
                 </div>
               ))}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     )
