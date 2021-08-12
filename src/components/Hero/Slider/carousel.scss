@@ -5,3 +5,9 @@
     object-fit: cover !important;
   }
 }
+
+@media (max-width: 960px) {
+  .carousel.slide.carousel-fade {
+    margin-top: 5rem;
+  }
+}
