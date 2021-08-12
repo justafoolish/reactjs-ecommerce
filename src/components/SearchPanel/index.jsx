@@ -4,7 +4,6 @@ import { Form } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
 import "./SearchPanel.scss";
 import useAnimation from "../../hooks/useAnimation";
-import useFetch from "../../hooks/useFetch";
 import FormInput from "../FormInput";
 import Loading from "../Loading";
 import { ProductCard } from "..";
@@ -13,12 +12,37 @@ function SearchPanel({ invisible }) {
   const { shouldRender, onAnimationEnd } = useAnimation(invisible);
   const [searchValue, setSearchValue] = React.useState("");
   const getSearchValue = (value) => setSearchValue(value);
-  const { data, isPending } = useFetch(searchValue.length ? `https://hactun-ecom.herokuapp.com/api/products?name_like=${searchValue}` : "");
+  const [products, setProducts] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+  const submitSearchForm = (e) => {
+    e.preventDefault();
+    searchValue.length && setLoading(true);
+  };
+
+  React.useEffect(() => {
+    const abortCont = new AbortController();
+    loading &&
+      searchValue.length &&
+      fetch(`https://hactun-ecom.herokuapp.com/api/products?name_like=${searchValue}`, { signal: abortCont.signal })
+        .then((res) => {
+          if (!res.ok) throw Error("Could not fetch");
+          return res.json();
+        })
+        .then((data) => {
+          setProducts(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          if (err.name !== "AbortError") {
+            setLoading(false);
+          }
+        });
+  }, [loading, searchValue]);
 
   return (
     shouldRender && (
       <div className={`search--panel${invisible ? "" : " collapsing"}`} key={invisible} onAnimationEnd={onAnimationEnd}>
-        <Form onSubmit={(e) => e.preventDefault()}>
+        <Form onSubmit={(e) => submitSearchForm(e)}>
           <Form.Group className={`search--input${invisible ? "" : " expanding"}`}>
             <FormInput type="text" label="Search" submitInput={getSearchValue} custom="mb-0" />
             <button type="submit">
@@ -27,11 +51,11 @@ function SearchPanel({ invisible }) {
           </Form.Group>
         </Form>
         <div className="container overflow-auto mb-3 border-bottom border-3 border-dark h-100">
-          <Loading isPending={isPending} />
+          <Loading isPending={loading} />
           <div className="row">
-            {searchValue.length !== 0 &&
-              data &&
-              data.map((product) => (
+            {products &&
+              !loading &&
+              products.map((product) => (
                 <div className="col-lg-3 col-md-4 col-6" key={product.id}>
                   <ProductCard product={product} />
                 </div>
