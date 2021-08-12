@@ -26,7 +26,7 @@ function SearchPanel({ invisible }) {
             </button>
           </Form.Group>
         </Form>
-        <div className="container overflow-auto mb-3">
+        <div className="container overflow-auto mb-3 border-bottom border-3 border-dark h-100">
           <Loading isPending={isPending} />
           <div className="row">
             {searchValue.length !== 0 &&
