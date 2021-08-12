@@ -1,4 +1,4 @@
-import { Hero, AdsBanner, Sponsor, Loading, ProductsSlider } from "../../components";
+import { Hero, Sponsor, Loading, ProductsSlider } from "../../components";
 import { Container } from "react-bootstrap";
 import useFetch from "../../hooks/useFetch";
 
@@ -9,7 +9,6 @@ function Home() {
   return (
     <>
       <Hero />
-      <AdsBanner />
       <Container fluid className="my-5">
         <Loading isPending={latestProductPending} error={latestProductError} errorMessage={"Fetch Data Error"} />
         {latestProduct && <ProductsSlider HeaderTitle="Latest Products" Products={latestProduct} />}

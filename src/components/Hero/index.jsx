@@ -7,18 +7,14 @@ import subMan from "../../assets/image/Banner/subMan";
 
 function Hero() {
   return (
-    <Container fluid>
-      <Row>
-        <Col md={8} className="px-0">
-          <Slider imgItem={ListImage} />
+    <Container fluid className="px-0">
+      <Slider imgItem={ListImage} />
+      <Row className="my-2">
+        <Col className="ps-0 pe-1">
+          <Slider indicatorButton={false} controlArea={false} interval={5000} imgItem={subWoman} />
         </Col>
-        <Col md={4} className="px-0" subslider=''>
-          <Row className="h-50">
-            <Slider indicatorButton={false} controlArea={false} interval={5000} imgItem={subWoman} />
-          </Row>
-          <Row className="h-50">
-            <Slider indicatorButton={false} controlArea={false} interval={4500} imgItem={subMan} />
-          </Row>
+        <Col className="pe-0 ps-1">
+          <Slider indicatorButton={false} controlArea={false} interval={4500} imgItem={subMan} />
         </Col>
       </Row>
     </Container>

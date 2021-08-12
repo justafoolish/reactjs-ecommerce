@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Form } from "react-bootstrap";
+import { Form, Container, Col, Row } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
 import "./SearchPanel.scss";
 import useAnimation from "../../hooks/useAnimation";
@@ -54,19 +54,18 @@ function SearchPanel({ invisible }) {
             </button>
           </Form.Group>
         </Form>
-        <div className="container overflow-auto mb-3 border-bottom border-2 border-dark h-100">
-          {console.log(products)}
+        <Container className="overflow-auto mb-3 border-bottom border-2 border-dark h-100">
           <Loading isPending={loading} error={error} errorMessage={"No Products Found"} />
           {!error && !loading && (
-            <div className="row">
+            <Row>
               {products.map((product) => (
-                <div className="col-lg-3 col-md-4 col-6" key={product.id}>
+                <Col className="col-6" lg={3} md={4} key={product.id}>
                   <ProductCard product={product} />
-                </div>
+                </Col>
               ))}
-            </div>
+            </Row>
           )}
-        </div>
+        </Container>
       </div>
     )
   );

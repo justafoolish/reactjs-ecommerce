@@ -25,7 +25,7 @@ function Header() {
 
   return (
     <Navbar bg="light" expand="lg" className="justify-content-between py-3 position-relative">
-      <Container fluid="md">
+      <Container fluid="lg">
         <NavbarToggle show={showMenu} toggleShow={toggleShowMenu} />
         <Link to="/" className="navbar-brand">
           <div className="text-danger font-weight-bold">
