@@ -8,7 +8,7 @@ import subMan from "../../assets/image/Banner/subMan";
 function Hero() {
   return (
     <Container fluid className="px-0">
-      <Slider imgItem={ListImage} />
+      <Slider imgItem={ListImage} className="banner" />
       <Row className="my-2 mx-0">
         <Col className="ps-0 pe-1">
           <Slider indicatorButton={false} controlArea={false} interval={5000} imgItem={subWoman} />

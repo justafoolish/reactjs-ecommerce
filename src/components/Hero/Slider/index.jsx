@@ -3,7 +3,7 @@ import { Carousel, Image } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./carousel.scss";
 
-function Slider({ indicatorButton, controlArea, interval, imgItem }) {
+function Slider({ indicatorButton, controlArea, interval, imgItem, className }) {
   const [index, setIndex] = React.useState(0);
 
   const handleSelect = (newIndex) => {
@@ -11,10 +11,10 @@ function Slider({ indicatorButton, controlArea, interval, imgItem }) {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} fade interval={interval} indicators={indicatorButton} controls={controlArea}>
+    <Carousel activeIndex={index} onSelect={handleSelect} fade interval={interval} indicators={indicatorButton} controls={controlArea} className={className}>
       {imgItem.map((item) => (
         <Carousel.Item key={item}>
-          <Image src={item} alt="" fluid/>
+          <Image src={item} alt="" fluid />
         </Carousel.Item>
       ))}
     </Carousel>
