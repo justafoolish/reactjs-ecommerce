@@ -20,7 +20,7 @@ const Product = () => {
   };
   const updatePreview = (e) => e.target.src !== srcImg && setSrcImg(e.target.src);
   return (
-    <Container className="my-5">
+    <Container className="my-5 pt-5">
       <Row className="clearfix" key={id}>
         <Loading isPending={isPending} error={error} />
         {product && (

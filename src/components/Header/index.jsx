@@ -14,6 +14,17 @@ function Header() {
   const [showMenu, setShowMenu] = React.useState(false);
   const [showCart, setShowCart] = React.useState(false);
   const [searchPanel, setSearchPanel] = React.useState(false);
+  const [navbarColor, setNavbarColor] = React.useState("bg-transparent");
+
+  React.useEffect(() => {
+    window.onscroll = function () {
+      window.pageYOffset === 0 && setNavbarColor("bg-transparent");
+      window.pageYOffset !== 0 && setNavbarColor("bg-white shadow");
+    };
+    return () => {
+      window.onscroll = null;
+    };
+  });
 
   const handleClose = () => setShowMenu(false);
   const toggleShowMenu = () => setShowMenu((s) => !s);
@@ -21,10 +32,12 @@ function Header() {
   const toggleShowCart = () => setShowCart((s) => !s);
   const toggleSearchPanel = () => {
     setSearchPanel((s) => !s);
+    searchPanel && navbarColor === "bg-transparent" && setNavbarColor("bg-transparent");
+    !searchPanel && navbarColor === "bg-transparent" && setNavbarColor("bg-white shadow");
   };
 
   return (
-    <Navbar bg="light" expand="lg" className="justify-content-between py-3 position-relative">
+    <Navbar expand="lg" className={`justify-content-between py-3 fixed-top ${navbarColor}`}>
       <Container fluid="lg">
         <NavbarToggle show={showMenu} toggleShow={toggleShowMenu} />
         <Link to="/" className="navbar-brand">

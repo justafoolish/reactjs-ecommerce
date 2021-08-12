@@ -6,7 +6,7 @@ export default function App() {
   return (
     <Router>
       <Header />
-      <main>
+      <main className="flex-grow-1">
         <Switch>
           <Route exact path="/" component={Home} />
 
