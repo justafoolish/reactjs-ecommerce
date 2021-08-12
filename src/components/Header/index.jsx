@@ -25,7 +25,6 @@ function Header() {
       window.onscroll = null;
     };
   });
-
   const handleClose = () => setShowMenu(false);
   const toggleShowMenu = () => setShowMenu((s) => !s);
   const handleCloseCart = () => setShowCart(false);
@@ -38,7 +37,7 @@ function Header() {
 
   return (
     <Navbar expand="lg" className={`justify-content-between py-3 fixed-top ${navbarColor}`}>
-      <Container fluid="lg">
+      <Container fluid="lg" className="position-relative">
         <NavbarToggle show={showMenu} toggleShow={toggleShowMenu} />
         <Link to="/" className="navbar-brand">
           <div className="text-danger font-weight-bold">
@@ -47,9 +46,9 @@ function Header() {
         </Link>
         <CategoryItem category={category} className="d-md-none" />
         <Icon toggleShowCart={toggleShowCart} toggleSearchPanel={toggleSearchPanel} search={searchPanel} />
+        <NavbarExpand show={showMenu} category={category} handleClose={handleClose} />
       </Container>
 
-      <NavbarExpand show={showMenu} handleClose={handleClose} />
       <CartExpand show={showCart} handleClose={handleCloseCart} />
       <SearchPanel invisible={searchPanel} />
     </Navbar>

@@ -1,0 +1,24 @@
+.expanded-navbar {
+  margin-top: 1rem;
+  position: absolute;
+  width: 100vw;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  animation: fadeUp 0.2s ease-in;
+
+  &.collapsing-navbar {
+    animation-direction: reverse !important;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

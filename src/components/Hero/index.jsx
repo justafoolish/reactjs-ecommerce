@@ -9,7 +9,7 @@ function Hero() {
   return (
     <Container fluid className="px-0">
       <Slider imgItem={ListImage} />
-      <Row className="my-2">
+      <Row className="my-2 mx-0">
         <Col className="ps-0 pe-1">
           <Slider indicatorButton={false} controlArea={false} interval={5000} imgItem={subWoman} />
         </Col>
