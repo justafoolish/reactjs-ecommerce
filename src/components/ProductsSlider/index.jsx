@@ -1,7 +1,8 @@
 import Slider from "react-slick";
+
+import { ProductCard, Button } from "..";
+
 import "./ProductsSlider.scss";
-import ProductCard from "../ProductCard";
-import Button from "../Button";
 
 const ProductsSlider = ({ HeaderTitle, Products }) => {
   const settings = {

@@ -47,7 +47,7 @@ const Product = () => {
                 </h3>
                 <div className="product--info__size">
                   <label>Size</label>
-                  <SizeBox sizeAvailable={["SM", "S", "L", "XL"]} pickSize={pickSize} />
+                  <SizeBox sizeAvailable={["S", "M", "L", "XL"]} pickSize={pickSize} />
                   {console.log(size)}
                 </div>
                 <Button variant="button-outline" custom="px-4">

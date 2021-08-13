@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Offcanvas } from "react-bootstrap";
 import { Basket3 } from "react-bootstrap-icons";
+import { Button } from "..";
 import "./cart.scss";
-import Button from "../Button";
-import { Link } from "react-router-dom";
 
 function CartExpand({ show, handleClose }) {
   const handleExit = () => handleClose && handleClose();

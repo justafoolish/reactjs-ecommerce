@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import "./ProductCard.scss";
-import QuickViewModal from "../QuickViewModal";
-import Button from "../Button";
+
+import { QuickViewModal, Button } from "..";
+
 import useToggleHeart from "../../hooks/useToggleHeart";
 import useToggleModal from "../../hooks/useToggleModal";
-import { Link } from "react-router-dom";
+
+import "./ProductCard.scss";
 
 function ProductCard({ product }) {
   const { id, name, price, imgURL } = product;

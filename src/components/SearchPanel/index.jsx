@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { Form, Container, Col, Row } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import "./SearchPanel.scss";
+
+import { ProductCard, Loading, FormInput } from "..";
 import useAnimation from "../../hooks/useAnimation";
-import FormInput from "../FormInput";
-import Loading from "../Loading";
-import { ProductCard } from "..";
+
+import "./SearchPanel.scss";
 
 function SearchPanel({ invisible }) {
   const { shouldRender, onAnimationEnd } = useAnimation(invisible);

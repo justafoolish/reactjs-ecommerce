@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./Modal.scss";
+
 import { Modal, Row, Col } from "react-bootstrap";
 import { BoxArrowLeft } from "react-bootstrap-icons";
-import Button from "../Button";
-import SizeBox from "../SizeBox";
+
+import { Button, SizeBox } from "..";
+
 import useQuantity from "../../hooks/useQuantity";
 import useToggleHeart from "../../hooks/useToggleHeart";
+
+import "./Modal.scss";
 
 function ProductModal({ show, onHide, product }) {
   const { name, price, imgURL } = product;
@@ -48,7 +51,7 @@ function ProductModal({ show, onHide, product }) {
                 </div>
                 <div className="modal--info--option">
                   <div className="modal--info--option__size">
-                    <SizeBox sizeAvailable={["SM", "S", "L", "XL"]} pickSize={pickSize} />
+                    <SizeBox sizeAvailable={["S", "M", "L", "XL"]} pickSize={pickSize} />
                   </div>
                   <div className="modal--info--option__quantity">
                     <button onClick={() => decreaseQuantity()}>-</button>

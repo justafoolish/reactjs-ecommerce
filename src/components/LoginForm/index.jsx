@@ -1,8 +1,9 @@
 import React from "react";
-import Button from "../Button";
-import FormInput from "../FormInput";
-import Form from "react-bootstrap/Form";
+
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+
+import { Button, FormInput } from "..";
 
 function LoginForm() {
   const errorMessage = ["Please enter your email address", "Please enter your password", "Not a valid password"];

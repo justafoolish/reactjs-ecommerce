@@ -2,11 +2,10 @@ import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 import "./header.scss";
 import NavbarToggle from "./NavbarToggle";
-import CategoryItem from "./CategoryItem";
+import NavbarItems from "./NavbarItems";
 import Icon from "./Icon";
 import NavbarExpand from "./NavbarExpand";
-import CartExpand from "../CartExpand";
-import SearchPanel from "../SearchPanel";
+import { SearchPanel, CartExpand } from "..";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -44,8 +43,11 @@ function Header() {
             e<span className="text-dark">Commerce</span>
           </div>
         </Link>
-        <CategoryItem category={category} className="d-md-none" />
+
+        <NavbarItems category={category} className="mx-auto d-none d-lg-flex" />
+
         <Icon toggleShowCart={toggleShowCart} toggleSearchPanel={toggleSearchPanel} search={searchPanel} />
+
         <NavbarExpand show={showMenu} category={category} handleClose={handleClose} />
       </Container>
 

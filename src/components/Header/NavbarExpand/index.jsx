@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "./navbar.scss";
+import NavbarItems from "../NavbarItems";
 import useAnimation from "../../../hooks/useAnimation";
 
 function NavbarExpand({ show, category, handleClose }) {
@@ -10,15 +9,7 @@ function NavbarExpand({ show, category, handleClose }) {
   return (
     shouldRender && (
       <div className={`expanded-navbar d-block d-lg-none${show ? "" : " collapsing-navbar"}`} onAnimationEnd={onAnimationEnd} key={show}>
-        <Nav className="mx-auto">
-          {category.map((item, index) => (
-            <NavItem key={index} className="text-center" onClick={() => handleClose()}>
-              <Link to={`/${item === "Home" ? "" : item}`} className="nav-link font-weight-bold my-1 d-inline-block" style={{ textTransform: "capitalize", fontSize: "1.25rem" }}>
-                {item}
-              </Link>
-            </NavItem>
-          ))}
-        </Nav>
+        <NavbarItems category={category} className="mx-auto" />
       </div>
     )
   );

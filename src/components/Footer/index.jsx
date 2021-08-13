@@ -1,8 +1,9 @@
-import "./footer.scss";
-import FormInput from "../FormInput";
-import Button from "../Button";
 import { Container, Col, Row } from "react-bootstrap";
 import { Facebook, Instagram, Twitter, Youtube, Envelope } from "react-bootstrap-icons";
+
+import { FormInput, Button } from "..";
+import "./footer.scss";
+
 const Footer = () => {
   return (
     <footer>
