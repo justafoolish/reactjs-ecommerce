@@ -1,4 +1,4 @@
-.card {
+.product--card {
   border: none !important;
   height: auto !important;
   border-radius: 0 !important;
@@ -8,7 +8,7 @@
   background-color: transparent !important;
 
   &:hover {
-    .card-header .fav-button,
+    .product--card--header .fav-button,
     .view-button {
       transform: translateX(25%);
       opacity: 1;
@@ -26,7 +26,7 @@
   }
 }
 
-.card-header {
+.product--card--header {
   border: none !important;
   padding: 0 !important;
   position: relative;

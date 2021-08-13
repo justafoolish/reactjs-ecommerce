@@ -11,5 +11,5 @@ export { default as Button } from "./Button";
 export { default as SizeBox } from "./SizeBox";
 export { default as FormInput } from "./FormInput";
 export { default as QuickViewModal } from "./QuickViewModal";
-export { default as CartExpand } from "./CartExpand";
+export { default as SideCart } from "./SideCart";
 export { default as SearchPanel } from "./SearchPanel";

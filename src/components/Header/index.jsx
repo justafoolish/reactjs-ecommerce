@@ -5,7 +5,7 @@ import NavbarToggle from "./NavbarToggle";
 import NavbarItems from "./NavbarItems";
 import Icon from "./Icon";
 import NavbarExpand from "./NavbarExpand";
-import { SearchPanel, CartExpand } from "..";
+import { SearchPanel, SideCart } from "..";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -51,7 +51,7 @@ function Header() {
         <NavbarExpand show={showMenu} category={category} handleClose={handleClose} />
       </Container>
 
-      <CartExpand show={showCart} handleClose={handleCloseCart} />
+      <SideCart show={showCart} handleClose={handleCloseCart} />
       <SearchPanel invisible={searchPanel} />
     </Navbar>
   );

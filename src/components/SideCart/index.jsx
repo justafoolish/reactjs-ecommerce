@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Offcanvas } from "react-bootstrap";
 import { Basket3 } from "react-bootstrap-icons";
+import SideCartItem from "./SideCartItem";
 import { Button } from "..";
 import "./cart.scss";
 
-function CartExpand({ show, handleClose }) {
+function SideCart({ show, handleClose }) {
   const handleExit = () => handleClose && handleClose();
   return (
     <>
@@ -14,13 +15,25 @@ function CartExpand({ show, handleClose }) {
         <Offcanvas.Header closeButton className="border-bottom py-4 my-2">
           <Offcanvas.Title>Your Cart</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className="d-flex flex-column justify-content-between">
+        <Offcanvas.Body className="d-flex flex-column justify-content-between p-2">
           <div className="cart--body">
-            <div className="cart--body--empty">
-              <Basket3 size={200} style={{ opacity: 0.75 }} />
-              <p>Your cart is currently empty</p>
-              <a href="/">Continue Shopping</a>
-            </div>
+            {false && (
+              <div className="cart--body--empty">
+                <Basket3 size={200} style={{ opacity: 0.75 }} />
+                <p>Your cart is currently empty</p>
+                <a href="/">Continue Shopping</a>
+              </div>
+            )}
+            {true && (<div className="cart--body--items">
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+              <SideCartItem />
+            </div>)}
           </div>
           <div className="cart--footer">
             <div className="cart--footer--price">
@@ -46,13 +59,13 @@ function CartExpand({ show, handleClose }) {
   );
 }
 
-CartExpand.propTypes = {
+SideCart.propTypes = {
   show: PropTypes.bool,
   handleClose: PropTypes.func,
 };
-CartExpand.defaultProps = {
+SideCart.defaultProps = {
   show: false,
   handleClose: null,
 };
 
-export default CartExpand;
+export default SideCart;
