@@ -35,7 +35,7 @@
     }
   }
   &--info {
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     h2 {
       font-size: 2.5rem;
     }
@@ -79,6 +79,23 @@
           }
         }
       }
+    }
+  }
+
+  &--bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    padding: 0 0 !important;
+    div > button:first-child {
+      // w-25 py-3 px-4 bg-white border-0
+      border: 0;
+      width: 25%;
+      border: none;
+      background: rgba(204, 202, 202,1);
+    }
+    div > button:last-child {
+      border-top: 1px solid #222;
     }
   }
 }

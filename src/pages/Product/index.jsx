@@ -3,10 +3,12 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "./product.scss";
 import { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
+import useToggleHeart from "../../hooks/useToggleHeart";
 import { Loading, Button, SizeBox } from "../../components";
 
 const Product = () => {
   const { id } = useParams();
+  const { activeWhistList, changeHeart, reChangeHeart } = useToggleHeart(true);
   const { data: product, isPending, error } = useFetch(`https://hactun-ecom.herokuapp.com/api/products/${id}`);
   const [srcImg, setSrcImg] = useState("");
   const [size, setSize] = useState("");
@@ -21,7 +23,7 @@ const Product = () => {
   const updatePreview = (e) => e.target.src !== srcImg && setSrcImg(e.target.src);
   return (
     <Container className="my-5 pt-5">
-      <Row className="clearfix" key={id}>
+      <Row className="clearfix position-relative" key={id}>
         <Loading isPending={isPending} error={error} />
         {product && (
           <>
@@ -50,11 +52,21 @@ const Product = () => {
                   <SizeBox sizeAvailable={["S", "M", "L", "XL"]} pickSize={pickSize} />
                   {console.log(size)}
                 </div>
-                <Button variant="button-outline" custom="px-4">
+                <Button variant="button-outline" custom="px-4 d-none d-sm-block">
                   Add to cart
                 </Button>
               </div>
             </Col>
+            <div className="product--bottom d-block d-sm-none">
+              <div className="d-flex align-items-end h-100 ">
+                <button className="product--bottom__addWhist py-3 px-4" onMouseEnter={() => changeHeart()} onMouseLeave={() => reChangeHeart()}>
+                    {activeWhistList}
+                </button>
+                <Button variant="button" custom="w-75 py-3">
+                  Add to cart
+                </Button>
+              </div>
+            </div>
           </>
         )}
       </Row>
