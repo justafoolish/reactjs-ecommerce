@@ -11,9 +11,57 @@
     margin-bottom: 0;
     margin-right: 1rem;
   }
+}
 
-  &.filter {
-    position: sticky;
-    top: 7rem;
+.filter {
+  position: sticky;
+  top: 7rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgb(80, 79, 79);
+  }
+  .colors {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+}
+
+.color--box {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  &[data-color="Black"] {
+    background: black;
+  }
+  &[data-color="Yellow"] {
+    background: yellow;
+  }
+  &[data-color="Pink"] {
+    background: Pink;
+  }
+  &[data-color="Violet"] {
+    background: Violet;
+  }
+  &[data-color="Orange"] {
+    background: Orange;
+  }
+  &[data-color="White"] {
+    background: White;
+  }
+  &[data-color="Red"] {
+    background: Red;
+  }
+  &[data-color="Blue"] {
+    background: Blue;
   }
 }
