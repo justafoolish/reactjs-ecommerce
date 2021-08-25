@@ -13,3 +13,5 @@ export { default as FormInput } from "./FormInput";
 export { default as QuickViewModal } from "./QuickViewModal";
 export { default as SideCart } from "./SideCart";
 export { default as SearchPanel } from "./SearchPanel";
+export { default as BreadCrumb } from "./BreadCrumb";
+export { default as Pagination } from "./Pagination";

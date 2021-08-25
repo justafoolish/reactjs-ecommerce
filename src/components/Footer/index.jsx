@@ -26,7 +26,10 @@ const Footer = () => {
         </Row>
       </Container>
       <div className="footer--info mx-5 mt-3 mb-5">
-        <p className="mx-1 text-mute">&#169; 2021. Powered by Hactuns</p>
+        <p className="mx-1 text-mute">
+          &#169; 2021. Powered by
+          <a href="hactun.me">Hactun</a>
+        </p>
         <ul className="d-flex">
           <li className="mx-1">
             <Facebook />

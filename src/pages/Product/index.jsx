@@ -4,7 +4,7 @@ import "./product.scss";
 import { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import useToggleHeart from "../../hooks/useToggleHeart";
-import { Loading, Button, SizeBox } from "../../components";
+import { Loading, Button, SizeBox, BreadCrumb } from "../../components";
 
 const Product = () => {
   const { id } = useParams();
@@ -23,6 +23,7 @@ const Product = () => {
   const updatePreview = (e) => e.target.src !== srcImg && setSrcImg(e.target.src);
   return (
     <Container className="my-5 pt-5">
+      <BreadCrumb name={product ? product.name : ""} />
       <Row key={id}>
         <Loading isPending={isPending} error={error} />
         {product && (
@@ -60,7 +61,7 @@ const Product = () => {
             <div className="product--bottom d-block d-sm-none">
               <div className="d-flex align-items-end h-100 ">
                 <button className="product--bottom__addWhist py-3 px-4" onMouseEnter={() => changeHeart()} onMouseLeave={() => reChangeHeart()}>
-                    {activeWhistList}
+                  {activeWhistList}
                 </button>
                 <Button variant="button" custom="w-75 py-3">
                   Add to cart

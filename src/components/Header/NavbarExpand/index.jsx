@@ -9,7 +9,7 @@ function NavbarExpand({ show, category, handleClose }) {
   return (
     shouldRender && (
       <div className={`expanded-navbar d-block d-lg-none${show ? "" : " collapsing-navbar"}`} onAnimationEnd={onAnimationEnd} key={show}>
-        <NavbarItems category={category} className="mx-auto" />
+        <NavbarItems category={category} className="mx-auto" handleClose={handleClose} />
       </div>
     )
   );

@@ -24,6 +24,7 @@
   align-items: flex-start;
   margin-bottom: 1rem;
   label {
+    margin: auto 0;
     font-size: 1.25rem;
     font-weight: bold;
     color: rgb(80, 79, 79);
@@ -31,6 +32,7 @@
   .colors {
     display: flex;
     gap: 5px;
+
     flex-wrap: wrap;
   }
 }
