@@ -67,3 +67,34 @@
     background: Blue;
   }
 }
+
+.active {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: black;
+    animation: slide 0.2s linear forwards;
+  }
+}
+@keyframes slide {
+  to {
+    width: 100%;
+  }
+}
+
+.active-color {
+  transform: scale(1);
+  border: 2px solid black;
+  animation: zoom 0.2s linear forwards;
+}
+@keyframes zoom {
+  to {
+    transform: scale(1.2);
+  }
+}

@@ -35,6 +35,10 @@ const Filter = ({ submitFilter }) => {
     setInputPrice(e.target.value);
     setFilters({ ...filters, price: e.target.value });
   };
+  const clearFilter = () => {
+    setFilters({ ...filters, category: "", color: "", price: maxPriceProduct[0].price });
+    setInputPrice(maxPriceProduct[0].price);
+  };
 
   return (
     <div className="filter">
@@ -47,26 +51,26 @@ const Filter = ({ submitFilter }) => {
         <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className="form-group flex-sm-column flex-row justify-content-between">
             <Form.Label>Category</Form.Label>
-            <Button variant="button-transparent" onClick={() => setCategory("")}>
+            <Button variant={`button-transparent ${filters.category ? "" : "active"}`} onClick={() => setCategory("")}>
               All
             </Button>
             {categories &&
               categories.map((category, idx) => (
-                <Button variant="button-transparent" key={idx} onClick={() => setCategory(category.name)}>
+                <Button variant={`button-transparent ${filters.category === category.name ? "active" : ""}`} key={idx} onClick={() => setCategory(category.name)}>
                   {category.name}
                 </Button>
               ))}
           </Form.Group>
           <Form.Group className="form-group flex-sm-column flex-row justify-content-between">
             <Form.Label>Colors</Form.Label>
-            <Button variant="button-transparent" onClick={() => setColor("")}>
+            <Button variant={`button-transparent ${filters.color ? "" : "active"}`} onClick={() => setColor("")}>
               All
             </Button>
             <div className="colors">
               {colors &&
                 colors.map((color, idx) => (
                   <Button variant="button-transparent" key={idx} custom="me-1" onClick={() => setColor(color.name)}>
-                    <div data-color={color.name} className="color--box"></div>
+                    <div data-color={color.name} className={`color--box ${filters.color === color.name ? "active-color" : ""}`}></div>
                   </Button>
                 ))}
             </div>
@@ -78,7 +82,7 @@ const Filter = ({ submitFilter }) => {
             </h4>
             <input type="range" min={0} max={maxPriceProduct ? maxPriceProduct[0].price : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
           </Form.Group>
-          <Button variant="button" custom="px-2 mb-sm-5">
+          <Button variant="button" custom="px-2 mb-sm-5" onClick={clearFilter}>
             Clear Filters
           </Button>
         </Form>
