@@ -16,6 +16,7 @@ const Filter = ({ submitFilter }) => {
   });
 
   useEffect(() => {
+      console.log("setting max price")
     maxPriceProduct && setInputPrice(maxPriceProduct[0].price);
     maxPriceProduct && setFilters({ ...filters, price: maxPriceProduct[0].price });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,7 +43,6 @@ const Filter = ({ submitFilter }) => {
 
   return (
     <div className="filter">
-      {console.log("filter render")}
       <section className="header d-none d-sm-flex">
         <p>Filters</p>
         <hr />
@@ -80,6 +80,7 @@ const Filter = ({ submitFilter }) => {
             <h4 className="order-last text-nowrap">
               {inputPrice} <sup>vnd</sup>
             </h4>
+            {maxPriceProduct && console.log("max price: ", maxPriceProduct[0].price)}
             <input type="range" min={0} max={maxPriceProduct ? parseInt(maxPriceProduct[0].price) : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
           </Form.Group>
           <Button variant="button" custom="px-2 mb-sm-5" onClick={clearFilter}>

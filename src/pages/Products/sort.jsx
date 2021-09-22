@@ -1,4 +1,5 @@
 import React from "react";
+import { Form } from "react-bootstrap";
 const Sort = ({ submitSort, totalProducts }) => {
   const submitSelect = (e) => {
     e.preventDefault();
@@ -21,18 +22,17 @@ const Sort = ({ submitSort, totalProducts }) => {
   };
   return (
     <section className="header">
-      {console.log("sort render")}
       <p>{totalProducts} Products Found</p>
       <hr />
-      <form>
-        <label className="mx-3">Sort</label>
-        <select onChange={(e) => submitSelect(e)} defaultValue={3}>
+      <Form className="d-flex align-items-center">
+        <Form.Label className="mx-3 my-auto">Sort</Form.Label>
+        <Form.Select onChange={(e) => submitSelect(e)} defaultValue={3} size="sm">
           <option value="1">Price (Lowest)</option>
           <option value="2">Price (Highest)</option>
           <option value="3">Name (A - Z)</option>
           <option value="4">Name (Z - A)</option>
-        </select>
-      </form>
+        </Form.Select>
+      </Form>
     </section>
   );
 };
