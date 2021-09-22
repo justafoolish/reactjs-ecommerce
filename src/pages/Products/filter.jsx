@@ -12,7 +12,7 @@ const Filter = ({ submitFilter }) => {
   const [filters, setFilters] = useState({
     category: "",
     color: "",
-    price: "",
+    price: 0,
   });
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const Filter = ({ submitFilter }) => {
             <h4 className="order-last text-nowrap">
               {inputPrice} <sup>vnd</sup>
             </h4>
-            <input type="range" min={0} max={maxPriceProduct ? maxPriceProduct[0].price : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
+            <input type="range" min={0} max={maxPriceProduct ? parseInt(maxPriceProduct[0].price) : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
           </Form.Group>
           <Button variant="button" custom="px-2 mb-sm-5" onClick={clearFilter}>
             Clear Filters

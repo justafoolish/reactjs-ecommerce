@@ -17,7 +17,7 @@ const Products = () => {
     order: "",
     color: "",
     category: "",
-    price: "",
+    price: 0,
   });
   const [totalProducts, setTotalProducts] = React.useState(0);
   const setTotals = (length) => {
