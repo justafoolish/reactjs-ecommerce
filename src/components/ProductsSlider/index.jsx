@@ -54,7 +54,11 @@ const ProductsSlider = ({ HeaderTitle, Products }) => {
         </div>
       </div>
       <Slider {...settings} className="px-lg-2 m-lg-3 mb-4" ref={(c) => (slider = c)}>
-        {Products && Products.map((product) => <ProductCard product={product} key={product.id} />)}
+        {Products && Products.map((product) => (
+          <div className="px-2">
+            <ProductCard product={product} key={product.id} />
+          </div>
+        ))}
       </Slider>
     </>
   );

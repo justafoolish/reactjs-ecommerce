@@ -28,7 +28,7 @@ const Footer = () => {
       <div className="footer--info mx-5 mt-3 mb-5">
         <p className="mx-1 text-mute">
           &#169; 2021. Powered by
-          <a href="hactun.me">Hactun</a>
+          <a href="https://hactun.vercel.app" className="ms-1">Hactun</a>
         </p>
         <ul className="d-flex">
           <li className="mx-1">

@@ -17,7 +17,7 @@ function ProductCard({ product }) {
   const { toggleModal, showModal, hideModal } = useToggleModal();
 
   return (
-    <Card key={id} className="mx-2 mx-md-1 product--card">
+    <Card key={id} className="mx-2 mx-md-auto product--card">
       <Card.Header className="h-50 product--card--header">
         <Link to={`/Product/${id}`}>
           <Card.Img src={imgURL[0]} variant="top" className="bg-transparent" />

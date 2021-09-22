@@ -48,7 +48,7 @@ const Products = () => {
   }, [filters]);
 
   return (
-    <Container className="mt-5 pt-5">
+    <Container className="mt-5 pt-5 px-md-5 px-2" fluid>
       <Row>
         <Col sm={3} md={2}>
           <Filter submitFilter={submitFilter} />
