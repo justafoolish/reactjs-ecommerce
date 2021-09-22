@@ -6,7 +6,7 @@ import { Form } from "react-bootstrap";
 const Filter = ({ submitFilter }) => {
   const { data: categories } = useFetch("https://hactun-ecom.herokuapp.com/api/categories");
   const { data: colors } = useFetch("https://hactun-ecom.herokuapp.com/api/colors");
-  const { data: maxPriceProduct } = useFetch("http://hactun-ecom.herokuapp.com/api/products?_sort=price&_order=desc&_limit=1");
+  const { data: maxPriceProduct } = useFetch("https://hactun-ecom.herokuapp.com/api/products?_sort=price&_order=desc&_limit=1");
 
   const [inputPrice, setInputPrice] = useState(0);
   const [filters, setFilters] = useState({
@@ -16,7 +16,6 @@ const Filter = ({ submitFilter }) => {
   });
 
   useEffect(() => {
-      console.log("setting max price")
     maxPriceProduct && setInputPrice(maxPriceProduct[0].price);
     maxPriceProduct && setFilters({ ...filters, price: maxPriceProduct[0].price });
     // eslint-disable-next-line react-hooks/exhaustive-deps
