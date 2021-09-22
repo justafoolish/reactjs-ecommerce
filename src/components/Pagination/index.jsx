@@ -30,10 +30,9 @@ const Pagination = ({ pagination: { page, limit, totals }, onPageChange }) => {
   };
 
   return (
-    <Paging className="m-1">
+    <Paging className="m-1 mt-auto">
       <Paging.First onClick={() => handlePageChange(1)} className={page === 1 ? "disabled" : ""} />
       <Paging.Prev onClick={() => handlePageChange(page - 1)} className={page === 1 ? "disabled" : ""} />
-      {console.log(page)}
       {getPageItem()}
       <Paging.Next onClick={() => handlePageChange(page + 1)} className={page === totalPages ? "disabled" : ""} />
       <Paging.Last onClick={() => handlePageChange(totalPages)} className={page === totalPages ? "disabled" : ""} />

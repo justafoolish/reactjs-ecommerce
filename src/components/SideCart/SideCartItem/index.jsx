@@ -32,7 +32,7 @@ function SideCartItem({ product }) {
 }
 
 SideCartItem.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.object,
 };
 
 export default SideCartItem;
