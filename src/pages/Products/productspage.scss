@@ -68,7 +68,7 @@
   }
 }
 
-.active {
+.active-btn {
   position: relative;
 
   &:after {
@@ -93,6 +93,7 @@
   border: 2px solid black;
   animation: zoom 0.2s linear forwards;
 }
+
 @keyframes zoom {
   to {
     transform: scale(1.2);

@@ -51,19 +51,19 @@ const Filter = ({ submitFilter }) => {
         <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className="form-group flex-sm-column flex-row justify-content-between">
             <Form.Label>Category</Form.Label>
-            <Button variant={`button-transparent ${filters.category ? "" : "active"}`} onClick={() => setCategory("")}>
+            <Button variant={`button-transparent ${filters.category ? "" : "active-btn"}`} onClick={() => setCategory("")}>
               All
             </Button>
             {categories &&
               categories.map((category, idx) => (
-                <Button variant={`button-transparent ${filters.category === category.name ? "active" : ""}`} key={idx} onClick={() => setCategory(category.name)}>
+                <Button variant={`button-transparent ${filters.category === category.name ? "active-btn" : ""}`} key={idx} onClick={() => setCategory(category.name)}>
                   {category.name}
                 </Button>
               ))}
           </Form.Group>
           <Form.Group className="form-group flex-sm-column flex-row justify-content-between">
             <Form.Label>Colors</Form.Label>
-            <Button variant={`button-transparent ${filters.color ? "" : "active"}`} onClick={() => setColor("")}>
+            <Button variant={`button-transparent ${filters.color ? "" : "active-btn"}`} onClick={() => setColor("")}>
               All
             </Button>
             <div className="colors">
