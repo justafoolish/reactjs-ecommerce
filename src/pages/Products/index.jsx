@@ -12,16 +12,15 @@ const Products = () => {
   const [filters, setFilters] = React.useState({
     page: 1,
     limit: 8,
-    totals: 24,
+    totals: 0,
     sort: "",
     order: "",
     color: "",
     category: "",
     price: 0,
   });
-  const [totalProducts, setTotalProducts] = React.useState(0);
-  const setTotals = (length) => {
-    setTotalProducts(length);
+  const setPagination = (pagination) => {
+    setFilters({ ...filters, ...pagination });
   };
   const handlePageChange = (i) => {
     setFilters({ ...filters, page: i });
@@ -41,9 +40,9 @@ const Products = () => {
   );
 
   React.useEffect(() => {
-    const param = `${filters.sort && `_sort=${filters.sort}&`}${filters.order && `_order=${filters.order}&`}${filters.category && `category_like=${filters.category}&`}${filters.color && `color_like=${filters.color}&`}${filters.price && `price_lte=${filters.price}&`}_limit=${filters.limit}&_page=${
-      filters.page
-    }`;
+    const param = `${filters.sort && `_sort=${filters.sort}&`}${filters.order && `_order=${filters.order}&`}${filters.category && `category_like=${filters.category}&`}${filters.color && `color_like=${filters.color}&`}${filters.price ? `price_lte=${filters.price}&` : ""}_limit=${
+      filters.limit
+    }&_page=${filters.page}`;
     setQueryAPI(`https://hactun-ecom.herokuapp.com/api/products?${param}`);
   }, [filters]);
 
@@ -54,9 +53,9 @@ const Products = () => {
           <Filter submitFilter={submitFilter} />
         </Col>
         <Col sm={9} md={10}>
-          <Sort submitSort={updateSort} totalProduct={totalProducts} />
-          <ListProducts queryAPI={queryAPI} getProductCount={setTotals} />
-          <Pagination onPageChange={handlePageChange} pagination={filters} />
+          <Sort submitSort={updateSort} totalProducts={filters.totals} />
+          <ListProducts queryAPI={queryAPI} setPagination={setPagination} />
+          {filters.totals > filters.limit && <Pagination onPageChange={handlePageChange} pagination={filters} />}
         </Col>
       </Row>
     </Container>

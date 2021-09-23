@@ -30,7 +30,7 @@ const Pagination = ({ pagination: { page, limit, totals }, onPageChange }) => {
   };
 
   return (
-    <Paging className="m-1 mt-auto">
+    <Paging className="justify-content-center align-items-center my-2">
       <Paging.First onClick={() => handlePageChange(1)} className={page === 1 ? "disabled" : ""} />
       <Paging.Prev onClick={() => handlePageChange(page - 1)} className={page === 1 ? "disabled" : ""} />
       {getPageItem()}

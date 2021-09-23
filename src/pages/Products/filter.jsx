@@ -16,8 +16,8 @@ const Filter = ({ submitFilter }) => {
   });
 
   useEffect(() => {
-    maxPriceProduct && setInputPrice(maxPriceProduct[0].price);
-    maxPriceProduct && setFilters({ ...filters, price: maxPriceProduct[0].price });
+    maxPriceProduct && setInputPrice(maxPriceProduct.data[0].price);
+    maxPriceProduct && setFilters({ ...filters, price: maxPriceProduct.data[0].price });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxPriceProduct]);
   useEffect(() => {
@@ -36,8 +36,8 @@ const Filter = ({ submitFilter }) => {
     setFilters({ ...filters, price: e.target.value });
   };
   const clearFilter = () => {
-    setFilters({ ...filters, category: "", color: "", price: maxPriceProduct[0].price });
-    setInputPrice(maxPriceProduct[0].price);
+    setFilters({ ...filters, category: "", color: "", price: maxPriceProduct.data[0].price });
+    setInputPrice(maxPriceProduct.data[0].price);
   };
 
   return (
@@ -65,7 +65,7 @@ const Filter = ({ submitFilter }) => {
             <Button variant={`button-transparent ${filters.color ? "" : "active-btn"}`} onClick={() => setColor("")}>
               All
             </Button>
-            <div className="colors">
+            <div className="colors pe-3 pe-lg-5">
               {colors &&
                 colors.map((color, idx) => (
                   <Button variant="button-transparent" key={idx} custom="me-1" onClick={() => setColor(color.name)}>
@@ -79,7 +79,7 @@ const Filter = ({ submitFilter }) => {
             <h4 className="order-last text-nowrap">
               {inputPrice} <sup>vnd</sup>
             </h4>
-             <input type="range" min={0} max={maxPriceProduct ? parseInt(maxPriceProduct[0].price) : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
+             <input type="range" min={0} max={maxPriceProduct ? parseInt(maxPriceProduct.data[0].price) : 0} step={10000} value={inputPrice} onChange={(e) => updateInputRange(e)} />
           </Form.Group>
           <Button variant="button" custom="px-2 mb-sm-5" onClick={clearFilter}>
             Clear Filters

@@ -11,11 +11,11 @@ function Home() {
       <Hero />
       <Container fluid className="my-5">
         <Loading isPending={latestProductPending} error={latestProductError} errorMessage={"Fetch Data Error"} />
-        {latestProduct && <ProductsSlider HeaderTitle="Latest Products" Products={latestProduct} />}
+        {latestProduct && <ProductsSlider HeaderTitle="Latest Products" Products={latestProduct.data} />}
       </Container>
       <Container fluid>
         <Loading isPending={popularProductPending} error={popularProductError} errorMessage={"Fetch Data Error"} />
-        {latestProduct && <ProductsSlider HeaderTitle="Popular Products" Products={popularProduct} />}
+        {popularProduct && <ProductsSlider HeaderTitle="Popular Products" Products={popularProduct.data} />}
       </Container>
       <Sponsor />
     </>

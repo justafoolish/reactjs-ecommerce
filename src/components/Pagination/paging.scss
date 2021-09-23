@@ -1,15 +1,15 @@
 .page-item {
   margin: 0.2rem;
   a.page-link {
-    border-radius: 10%;
+    border-radius: 0 !important;
 
     border: none;
-    padding: 0.6rem 1rem 0.6rem 1rem;
+    padding: 0.6rem .8rem;
   }
   &.active .page-link {
-    background-color: var(--secondary-background);
-    border-color: var(--secondary-background);
-    border-radius: 10%;
-    padding: 0.52rem 1rem 0.52rem 1rem;
+    background-color: var(--bs-gray-dark) !important;
+    border-color: var(--bs-gray-dark) !important;
+    border-radius: 0;
+    padding: 0.5rem .75rem;
   }
 }

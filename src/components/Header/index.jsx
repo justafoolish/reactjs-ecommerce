@@ -38,8 +38,8 @@ function Header() {
     <Navbar expand="lg" className={`justify-content-between py-3 fixed-top ${navbarColor}`}>
       <Container fluid="lg" className="position-relative">
         <NavbarToggle show={showMenu} toggleShow={toggleShowMenu} />
-        <Link to="/" className="navbar-brand">
-          <div className="text-danger font-weight-bold">
+        <Link to="/" className="navbar-brand ms-md-0">
+          <div className="text-danger font-weight-bold text-center">
             e<span className="text-dark">Commerce</span>
           </div>
         </Link>

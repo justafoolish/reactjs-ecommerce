@@ -18,6 +18,14 @@
   nav.navbar {
     background: #fff !important;
   }
+  .navbar-brand {
+    margin-right: 0 !important;
+    font-size: 1.5rem !important;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    z-index: -5;
+  }
 }
 
 .navbar .nav-item {
